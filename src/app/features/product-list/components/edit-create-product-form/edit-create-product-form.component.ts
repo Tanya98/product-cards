@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductForm } from 'src/app/models';
-import { Mode } from 'src/app/shared/enums';
+import { ProductForm } from '@app/models';
+import { Mode } from '@app/shared/enums';
 
 @Component({
     selector: 'edit-create-product-form',

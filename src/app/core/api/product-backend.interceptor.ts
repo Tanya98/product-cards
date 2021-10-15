@@ -1,5 +1,6 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
@@ -7,7 +8,7 @@ import { delay } from 'rxjs/operators';
 export class ProductBackendHttpInterceprot implements HttpInterceptor {
     constructor() { }
 
-    private path = "assets/products.json";
+    private path = environment.productsData;
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return this.handleRequests(req, next);

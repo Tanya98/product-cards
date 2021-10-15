@@ -1,6 +1,6 @@
+import { Product } from '@app/models';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { Action, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
-import { Product } from 'src/app/models';
+import { createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
 import { ProductActions } from '../actions';
 
 export interface ProductState extends EntityState<Product> {

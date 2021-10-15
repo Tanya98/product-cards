@@ -5,15 +5,15 @@ import { StoreModule } from '@ngrx/store';
 import { ProductListComponent } from './product-list.component';
 import { ProductListRoutingModule } from './product-list-routing.module';
 import { productReducer } from './state/reducers';
-import { ProductCardComponent } from 'src/app/features/product-list/components/product-card/product-card.component';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateProductCardComponent } from 'src/app/features/product-list/components/create-product-card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { SharedModule } from 'src/app/shared/shared.module';
-import { EditCreateProductComponent } from './components/edit-create-product-form/edit-create-product-form.component';
+import { SharedModule } from '@app/shared/shared.module';
+import { ProductCardComponent } from './components/product-card';
+import { CreateProductCardComponent } from './components/create-product-card';
+import { EditCreateProductComponent } from './components/edit-create-product-form';
 
 @NgModule({
     declarations: [

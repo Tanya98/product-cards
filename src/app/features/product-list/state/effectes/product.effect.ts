@@ -1,9 +1,9 @@
-import { ProductService } from 'src/app/services';
 import { Injectable } from '@angular/core';
+import { Product } from '@app/models';
+import { ProductService } from '@app/services';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { mergeMap, catchError, map, concatMap } from 'rxjs/operators';
+import { mergeMap, map, concatMap } from 'rxjs/operators';
 import { ProductActions } from '../actions';
-import { Product } from 'src/app/models';
 
 @Injectable()
 export class ProductEffects {

@@ -1,4 +1,4 @@
-@import "/src/styles/common.scss";
+@import "styles/common.scss";
 
 .edit-create-product-form {
     @include FlexColumn(space-between, initial);

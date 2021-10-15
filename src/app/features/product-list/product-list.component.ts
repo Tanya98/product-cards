@@ -1,13 +1,14 @@
-import { imgUrl } from './../../../environments/environment';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Update } from '@ngrx/entity';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Product, ProductForm } from 'src/app/models';
 import { ProductActions } from './state/actions';
 import { getAllProducts, ProductState } from './state/reducers';
-import { Mode } from 'src/app/shared/enums';
+import { Product, ProductForm } from '@app/models';
+import { Mode } from '@app/shared/enums';
+import { environment } from 'environments/environment';
+
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ProductListComponent implements OnInit {
     mode!: Mode;
     productId: any;
 
-    private imgUrl: string = imgUrl;
+    private imgUrl: string = environment.defaultImg;
 
     @ViewChild("modalContent") private modalContent!: ElementRef;
 

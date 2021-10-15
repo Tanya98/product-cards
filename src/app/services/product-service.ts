@@ -3,12 +3,13 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Product } from '../models';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
     constructor(private http: HttpClient) { }
 
-    private url = 'http://localhost:4200/products';
+    private url = environment.productsUrl;
 
     public getAllProducts() {
         return this.http.get<Product[]>(this.url)
