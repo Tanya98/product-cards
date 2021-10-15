@@ -1,0 +1,30 @@
+@import "/src/styles/common.scss";
+
+.card {
+    height: 420px;
+    .card-image-block {
+        background: gainsboro;
+        .card-img-top {
+            width: 250px;
+            transform: translate(18px);
+        }
+    }
+    
+    .card-body-block {
+        @include FlexRow(space-between, initial);
+        .remove-but {
+            margin-left: 5px;
+        }
+    }
+    
+    .card-product-price {
+        font-weight: 600;
+    }
+    .card-text {
+        margin-top: 10px;
+    }
+
+    .card-buttons {
+        @include FlexRow(initial, center);
+    }
+}

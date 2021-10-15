@@ -1,0 +1,25 @@
+@import "/src/styles/common.scss";
+
+.create-product-card {
+    margin: 20px 10px;
+    @include FlexColumn(center, center);
+    width: 288px;
+    max-width: 288px;
+    height: 420px;
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+    box-sizing: border-box;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+
+    .add-card-icon {
+        font-size: 60px;
+        color: white;
+    }
+
+    .add-card-text {
+        color: white;
+        font-weight: 500;
+        font-size: 20px;
+    }
+}

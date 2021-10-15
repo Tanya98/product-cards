@@ -1,0 +1,15 @@
+<main class="product-list-container">
+    <div class="product-list">
+        <create-product-card (click)="onCardCreate()"></create-product-card>
+        <ng-container *ngFor="let product of products$ | async">
+            <product-card class="product-card" [product]='product' (edit)="onCardEdit($event)"
+                (remove)="onCardRemove($event)"></product-card>
+        </ng-container>
+    </div>
+</main>
+<ng-template #modalContent let-modal>
+    <product-popup>
+        <edit-create-product-form [mode]="mode" (create)="onProductCreate($event)" (edit)="onProductEdit($event)">
+        </edit-create-product-form>
+    </product-popup>
+</ng-template>

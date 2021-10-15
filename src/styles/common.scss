@@ -1,0 +1,15 @@
+@mixin FlexColumn($direction, $alignItems) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $direction;
+    align-items: $alignItems;
+    flex-wrap: wrap;
+}
+
+@mixin FlexRow($direction, $alignItems) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $direction;
+    align-items: $alignItems;
+    flex-wrap: wrap;
+}

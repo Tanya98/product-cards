@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-image-block"><img class="card-img-top" src="{{product.image}}" alt="Card image cap"></div>
+    <div class="card-body">
+        <div class="card-body-block">
+            <h5 class="card-title">{{product.name}}</h5>
+            <div class="card-buttons">
+                <button type="button" class="btn btn-outline-success" (click)="onEdit(product.id)"><i class="bi bi-pencil"></i></button>
+                <button type="button" class="btn btn-outline-danger remove-but" (click)="onRemove(product.id)"><i
+                        class="bi bi-trash"></i></button>
+            </div>
+        </div>
+
+        <p class="card-text">{{product.description | truncate: 50}}</p>
+        <span class="card-product-price">{{product.price | currency}}</span>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+@import "/src/styles/common.scss";
+
+.product-list-container {
+    @include FlexRow(center, center);
+    .product-list {
+        width: 1232px;
+        @include FlexRow(flex-start, center);
+    
+        .product-card {
+            margin: 20px 10px;
+        }
+    }
+}

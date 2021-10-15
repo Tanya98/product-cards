@@ -1,0 +1,51 @@
+[
+    {
+        "id": "1",
+        "name": "AirPods Pro",
+        "description": "Automatically on, automatically connected, Quick charging in the case",
+        "price": "249",
+        "image": "assets/default-img.png"
+    },
+    {
+        "id": "2",
+        "name": "iPhone 13 Pro",
+        "description": "All-screen OLED display2 with ProMotion, Telephoto, Wide, Ultra Wide",
+        "price": "999",
+        "image": "assets/default-img.png"
+    },
+    {
+        "id": "3",
+        "name": "iPhone 13",
+        "description": "All-screen OLED display2, Wide, Ultra Wide, Faster than the competition",
+        "price": "699",
+        "image": "assets/default-img.png"
+    },
+    {
+        "id": "4",
+        "name": "iPhone 12",
+        "description": "All-screen OLED display2, Wide, Ultra Wide",
+        "price": "599",
+        "image": "assets/default-img.png"
+    },
+    {
+        "id": "5",
+        "name": "Silicon Case",
+        "description": "The silky, soft-touch finish of the silicone exterior feels great in your hand. And on the inside, there’s a soft microfiber lining for even more protection.",
+        "price": "49",
+        "image": "assets/default-img.png"
+    },
+    {
+        "id": 6,
+        "name": "Battery Pack",
+        "description": "The perfectly aligned magnets keep it attached to youriPhone 12 and iPhone 12 Pro or iPhone 13 and iPhone 13 Pro — providing safe and reliable wireless charging.",
+        "price": "99",
+        "image": "assets/default-img.png"
+    },
+    {
+        "id": "7",
+        "name": "MacBook Air",
+        "description": "M1: Small chip. Giant leap. 8-core CPU Devours tasks. Sips battery.",
+        "price": "999",
+        "image": "assets/default-img.png"
+    }
+]

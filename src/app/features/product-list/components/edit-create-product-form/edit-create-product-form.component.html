@@ -1,0 +1,48 @@
+<form class="edit-create-product-form" [formGroup]="editCreateForm" (ngSubmit)="submitForm(editCreateForm)">
+    <div class="form-group">
+        <label for="exampleInputName">Name</label>
+        <input type="text" class="form-control" formControlName="name" id="exampleInputName"
+            aria-describedby="emailHelp" placeholder="Name">
+
+        <ng-container *ngIf="productName?.errors?.required && productName?.touched">
+            <span class="error-message">This field is required</span>
+        </ng-container>
+
+        <ng-container *ngIf="productName?.errors?.pattern && (productName?.dirty || productName?.touched)">
+            <span class="error-message">This field is invalid</span>
+        </ng-container>
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleInputDescription">Description</label>
+        <input type="text" class="form-control" formControlName="description" id="exampleInputDescription"
+            placeholder="Description">
+
+        <ng-container *ngIf="productDescription?.errors?.required && productDescription?.touched">
+            <span class="error-message">This field is required</span>
+        </ng-container>
+
+        <ng-container *ngIf="productDescription?.errors?.pattern && (productDescription?.dirty || productDescription?.touched)">
+            <span class="error-message">This field is invalid</span>
+        </ng-container>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPrice">Price</label>
+        <input type="text" class="form-control" formControlName="price" id="exampleInputPrice" placeholder="Price">
+
+        <ng-container *ngIf="productPrice?.errors?.required && productPrice?.touched">
+            <span class="error-message">This field is required</span>
+        </ng-container>
+
+        <ng-container
+            *ngIf="productPrice?.errors?.pattern && (productPrice?.dirty || productPrice?.touched)">
+            <span class="error-message">This field is invalid</span>
+        </ng-container>
+    </div>
+
+
+
+    <button type="submit" [disabled]="!editCreateForm.valid" class="btn btn-primary">Submit</button>
+</form>
