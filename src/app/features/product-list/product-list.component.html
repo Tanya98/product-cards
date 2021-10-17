@@ -9,7 +9,10 @@
 </main>
 <ng-template #modalContent let-modal>
     <product-popup>
-        <edit-create-product-form [mode]="mode" [productData]= "editableProduct" (create)="onProductCreate($event)" (edit)="onProductEdit($event)">
+        <edit-create-product-form [mode]="mode" [productData]= "editableProduct" 
+        (create)="onProductCreate($event)" 
+        (edit)="onProductEdit($event)"
+        (close)="closeProductPopup()">
         </edit-create-product-form>
     </product-popup>
 </ng-template>

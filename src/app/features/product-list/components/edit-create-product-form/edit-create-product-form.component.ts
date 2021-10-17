@@ -21,6 +21,7 @@ export class EditCreateProductComponent implements OnInit {
 
     @Output() public create = new EventEmitter<ProductForm>();
     @Output() public edit = new EventEmitter<ProductForm>();
+    @Output() public close = new EventEmitter();
 
     constructor(private formBuilder: FormBuilder) { }
 
@@ -69,5 +70,6 @@ export class EditCreateProductComponent implements OnInit {
             }
         }
         form.reset();
+        this.close.emit();
     }
 }

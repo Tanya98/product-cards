@@ -106,6 +106,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
         }
     }
 
+    closeProductPopup() {
+        this.modalService.dismissAll();
+    }
+
     ngOnDestroy() {
         this.destroy$.next();
         this.destroy$.complete();
