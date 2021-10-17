@@ -1,5 +1,5 @@
 # Product-Cards App
-* It's a repo designed to create an Application with Angular 12.
+It's a repo designed to create an Application with Angular 12.
 
 * Frontend - Angular 12.2.7 & Angular CLI 12.2.7
 
@@ -28,4 +28,5 @@ ng serve or ng serve --open
 ```
 
 The ng serve command launches the server, watches your files, and rebuilds the app as you make changes to those files.
+
 The --open (or just -o) option automatically opens your browser to http://localhost:4200/.
