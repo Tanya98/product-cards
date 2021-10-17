@@ -19,12 +19,13 @@ Install the npm packages described in the package.json and verify that it works:
 
 ```
 npm install
-
+```
 
 # Run the application
 
 ```
 ng serve or ng serve --open
+```
 
 The ng serve command launches the server, watches your files, and rebuilds the app as you make changes to those files.
 The --open (or just -o) option automatically opens your browser to http://localhost:4200/.
