@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 
 export class CreateProductCardComponent implements OnInit {
 
-    public title = 'Create Product Form';
     constructor() { }
 
     ngOnInit() { }

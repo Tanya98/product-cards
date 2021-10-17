@@ -16,8 +16,8 @@
 
     <div class="form-group">
         <label for="exampleInputDescription">Description</label>
-        <input type="text" class="form-control" formControlName="description" id="exampleInputDescription"
-            placeholder="Description">
+        <textarea type="text" class="form-control" formControlName="description" id="exampleInputDescription"
+         row="3"   placeholder="Description"></textarea>
 
         <ng-container *ngIf="productDescription?.errors?.required && productDescription?.touched">
             <span class="error-message">This field is required</span>
