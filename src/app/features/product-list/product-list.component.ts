@@ -1,14 +1,14 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Update } from '@ngrx/entity';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ProductActions } from './state/actions';
 import { getAllProducts, ProductState } from './state/reducers';
 import { Product, ProductForm } from '@app/models';
 import { Mode } from '@app/shared/enums';
 import { environment } from 'environments/environment';
-
+import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -16,14 +16,16 @@ import { environment } from 'environments/environment';
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
-    products$!: Observable<Product[]>;
+    products: Product[] = [];
     closeModal!: string;
     mode!: Mode;
     productId: any;
+    editableProduct!: any;
 
     private imgUrl: string = environment.defaultImg;
+    private destroy$: Subject<boolean> = new Subject<boolean>();
 
     @ViewChild("modalContent") private modalContent!: ElementRef;
 
@@ -31,7 +33,8 @@ export class ProductListComponent implements OnInit {
         private modalService: NgbModal,
         private store: Store<ProductState>
     ) {
-        this.products$ = this.store.select(getAllProducts);
+        this.store.select(getAllProducts).pipe(
+            takeUntil(this.destroy$)).subscribe(res => this.products = res);
     }
 
     onCardCreate() {
@@ -46,6 +49,9 @@ export class ProductListComponent implements OnInit {
     onCardEdit(productId: any) {
         this.mode = Mode.Edit;
         this.productId = productId;
+        if (this.productId) {
+            this.editableProduct = this.products.find(product => Number(product.id) === this.productId);
+        }
         this.triggerModal(this.modalContent);
     }
 
@@ -98,5 +104,10 @@ export class ProductListComponent implements OnInit {
         } else {
             return `with: ${reason}`;
         }
+    }
+
+    ngOnDestroy() {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 }

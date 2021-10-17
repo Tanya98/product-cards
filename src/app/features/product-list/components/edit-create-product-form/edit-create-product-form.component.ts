@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductForm } from '@app/models';
+import { Product, ProductForm } from '@app/models';
 import { Mode } from '@app/shared/enums';
 
 @Component({
@@ -12,7 +12,12 @@ import { Mode } from '@app/shared/enums';
 export class EditCreateProductComponent implements OnInit {
 
     @Input() mode: Mode = Mode.Create;
+    @Input() productData!: Product;
+
     public editCreateForm!: FormGroup;
+    private nameValidator =  Validators.pattern("^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$");
+    private descriptionValidator =  Validators.pattern("^[a-zA-Z0-9_:.,-]+( [a-zA-Z0-9_:.,-]+)*$");
+    private priceValidator =  Validators.pattern("^[0-9]*$");
 
     @Output() public create = new EventEmitter<ProductForm>();
     @Output() public edit = new EventEmitter<ProductForm>();
@@ -20,11 +25,23 @@ export class EditCreateProductComponent implements OnInit {
     constructor(private formBuilder: FormBuilder) { }
 
     ngOnInit() {
-        this.editCreateForm = this.formBuilder.group({
-            name: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$")]],
-            description: ['', [Validators.required, Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
-            price: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-        })
+
+        switch (this.mode) {
+            case Mode.Edit:
+                this.editCreateForm = this.formBuilder.group({
+                    name: [this.productData.name, [Validators.required, this.nameValidator]],
+                    description: [this.productData.description, [Validators.required, this.descriptionValidator]],
+                    price: [this.productData.price, [Validators.required, this.priceValidator]],
+                })
+                break;
+            default:
+                this.editCreateForm = this.formBuilder.group({
+                    name: ['', [Validators.required, this.nameValidator]],
+                    description: ['', [Validators.required, this.descriptionValidator]],
+                    price: ['', [Validators.required, this.priceValidator]],
+                })
+        }
+
     }
 
     get productName() {
