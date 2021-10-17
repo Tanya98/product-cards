@@ -1,4 +1,4 @@
-import { ProductPopupComponent } from "./components/create-edit-product-form/product-popup.component";
+import { ProductPopupComponent } from "./components/product-popup/product-popup.component";
 
 export const COMPONENTS = {
     ProductPopupComponent
